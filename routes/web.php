@@ -17,4 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'RecipeController@index')
+    ->name('index');
+Route::get('/recipes/{id}', 'RecipeController@show')
+    ->where('id', '\d+')
+    ->name('recipe');

@@ -10,11 +10,14 @@ class RecipeController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function index()
     {
-        //
+        $recipes = Recipe::paginate(5);
+        return view('recipes.index', [
+            'recipesList'   => $recipes
+        ]);
     }
 
     /**
