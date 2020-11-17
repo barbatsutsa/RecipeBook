@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Recipe;
+use App\Models\Ingredient;
 use Illuminate\Http\Request;
 
 class RecipeController extends Controller
@@ -45,11 +46,24 @@ class RecipeController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Recipe  $recipe
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function show(Recipe $recipe)
     {
-        //
+        $n = $recipe->id;
+        dump($n);
+        $rec = new Recipe();
+
+        $recipeShow = $rec->getById($recipe->id);
+        $ingr = new Ingredient();
+        $ingredients = $ingr->getIngredients($recipe->id);
+        if(empty($recipeShow)) {
+            abort(404, 'Recipe not found');
+        }
+        return view('recipes.show', [
+            'recipe'       => $recipeShow,
+            'ingredients'  => $ingredients
+        ]);
     }
 
     /**
