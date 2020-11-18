@@ -48,6 +48,8 @@
                                         {{ __('Remember Me') }}
                                     </label>
                                 </div>
+                                <a href="{{ route('vklogin') }}"><img src="vk.png" alt="" width="40"></a>
+                                <a href="{{ route('auth.social', 'facebook') }}"><img src="Facebook.png" alt="" width="40"></a>
                             </div>
                         </div>
 
