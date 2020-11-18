@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4d3d730750be6b6adf0c7a4b46080445",
+    "content-hash": "6a88203e51f1307159bc662945c7f8e3",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2050,19 +2050,20 @@
         },
         {
             "name": "socialiteproviders/vkontakte",
-            "version": "v3.2.1",
+            "version": "v4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SocialiteProviders/VKontakte.git",
-                "reference": "5dddda086e2ab96ae94899fece9b0ef2b9b87bbd"
+                "reference": "81f4b79c47c4c6aba8f1f2685dddeb0505f1e71a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SocialiteProviders/VKontakte/zipball/5dddda086e2ab96ae94899fece9b0ef2b9b87bbd",
-                "reference": "5dddda086e2ab96ae94899fece9b0ef2b9b87bbd",
+                "url": "https://api.github.com/repos/SocialiteProviders/VKontakte/zipball/81f4b79c47c4c6aba8f1f2685dddeb0505f1e71a",
+                "reference": "81f4b79c47c4c6aba8f1f2685dddeb0505f1e71a",
                 "shasum": ""
             },
             "require": {
+                "ext-json": "*",
                 "php": "^5.6 || ^7.0",
                 "socialiteproviders/manager": "~2.0 || ~3.0"
             },
@@ -2083,7 +2084,7 @@
                 }
             ],
             "description": "VKontakte OAuth2 Provider for Laravel Socialite",
-            "time": "2018-03-02T05:25:30+00:00"
+            "time": "2019-12-08T14:15:15+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

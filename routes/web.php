@@ -13,6 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
+
 });
 
 Auth::routes();
@@ -23,3 +24,10 @@ Route::get('/', 'RecipeController@index')
 Route::get('/recipes/{id}', 'RecipeController@show')
     ->where('id', '\d+')
     ->name('recipe');
+
+Route::get('/social-auth/{provider}', 'Auth\SocialController@redirectToProvider')->name('auth.social');
+
+Route::get('/social-auth/{provider}/callback', 'Auth\SocialController@handleProviderCallback')->name('auth.social.callback');
+
+Route::get('/auth/vk', 'LoginController@loginVK')->name('vklogin');
+Route::get('/auth/vk/response', 'LoginController@responseVK')->name('vkResponse');
