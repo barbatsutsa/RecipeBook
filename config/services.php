@@ -34,4 +34,16 @@ return [
         'secret' => env('SPARKPOST_SECRET'),
     ],
 
+    'facebook' => [
+        'client_id' => '1032709790523538',
+        'client_secret' => '38e8ca03090f73215b5bac529a6121eb',
+        'redirect' => '/social-auth/facebook/callback',
+    ],
+
+    'vkontakte' => [
+        'client_id' => '7638447',
+        'client_secret' => 'noo3C9BsTwTuJ8Xy6Fm5',
+        'redirect' => 'http://localhost:8000/auth/vk/response',
+    ]
+
 ];
