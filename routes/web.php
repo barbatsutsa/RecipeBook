@@ -24,6 +24,12 @@ Route::get('/', 'RecipeController@index')
 Route::get('/recipes/{id}', 'RecipeController@show')
     ->where('id', '\d+')
     ->name('recipe');
+Route::get('/recipes/create', 'RecipeController@create')
+    ->name('recipes.create');
+Route::post('/recipes/store', 'RecipeController@store')
+    ->name('recipes.store');
+Route::get('/category/{category_id}', 'RecipeController@index')
+    ->name('recipes.category');
 
 Route::get('/social-auth/{provider}', 'Auth\SocialController@redirectToProvider')->name('auth.social');
 
@@ -31,3 +37,4 @@ Route::get('/social-auth/{provider}/callback', 'Auth\SocialController@handleProv
 
 Route::get('/auth/vk', 'LoginController@loginVK')->name('vklogin');
 Route::get('/auth/vk/response', 'LoginController@responseVK')->name('vkResponse');
+
