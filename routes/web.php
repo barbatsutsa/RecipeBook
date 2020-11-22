@@ -13,6 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
+
 });
 
 Auth::routes();
@@ -23,3 +24,10 @@ Route::get('/', 'RecipeController@index')
 Route::get('/recipes/{id}', 'RecipeController@show')
     ->where('id', '\d+')
     ->name('recipe');
+Route::get('/recipes/create', 'RecipeController@create')
+    ->name('recipes.create');
+Route::post('/recipes/store', 'RecipeController@store')
+    ->name('recipes.store');
+Route::get('/category/{category_id}', 'RecipeController@index')
+    ->name('recipes.category');
+
