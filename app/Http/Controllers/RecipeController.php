@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Recipe;
 use App\Models\Ingredient;
 use Illuminate\Http\Request;
+use App\Http\Requests\RecipeCreateRequest;
 
 class RecipeController extends Controller
 {
@@ -24,22 +25,38 @@ class RecipeController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function create()
     {
-        //
+        return view('recipes.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(RecipeCreateRequest $request)
     {
-        //
+        $data = $request->validated();
+        if($request->hasFile('image')) {
+            $file = $request->file('image');
+            $name = $file->getClientOriginalName();
+
+            $upload = $file->storeAs('recipe', $name);
+            if($upload) {
+                $data['image'] = $upload;
+            }
+        }
+
+        $recipe = Recipe::create($data);
+        if ($recipe) {
+            return redirect()->route('index')->with('success', 'Рецепт успешно добавлен');
+        }
+
+        return back()->with('error', 'Не удалось добавить рецепт');
     }
 
     /**
@@ -50,11 +67,12 @@ class RecipeController extends Controller
      */
     public function show(Recipe $recipe)
     {
+        dump($recipe);
         $n = $recipe->id;
         dump($n);
         $rec = new Recipe();
 
-        $recipeShow = $rec->getById($recipe->id);
+        $recipeShow = $rec->getById($n);
         $ingr = new Ingredient();
         $ingredients = $ingr->getIngredients($recipe->id);
         if(empty($recipeShow)) {
@@ -84,7 +102,7 @@ class RecipeController extends Controller
      * @param  \App\Models\Recipe  $recipe
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Recipe $recipe)
+    public function update(RecipeCreateRequest $request, Recipe $recipe)
     {
         //
     }
