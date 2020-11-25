@@ -38,4 +38,3 @@ Route::get('/social-auth/{provider}/callback', 'Auth\SocialController@handleProv
 Route::get('/auth/vk', 'LoginController@loginVK')->name('vklogin');
 Route::get('/auth/vk/response', 'LoginController@responseVK')->name('vkResponse');
 
-
