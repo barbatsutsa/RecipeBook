@@ -1,0 +1,40 @@
+.header{
+    min-width: 100%;
+    min-height: 100px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    margin: 25px;
+}
+
+.nav{
+    width: 50%;
+   display: flex;
+   justify-content: flex-start;
+   margin: 25px 0 25px 0;
+}
+
+.nav-item-list{
+    list-style: none;
+}
+
+.nav-item{
+    
+    font-size: 22px;  
+    flex-direction: row;
+    margin: 0 10px 0 10px;
+    border-bottom: 1px solid #000;
+}
+
+
+.account{
+    width: 15%;
+    font-size: 20px;  
+    margin: 20px 0 20px 0;
+    text-align: center;
+    
+}
