@@ -16,7 +16,8 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        $recipes = Recipe::paginate(5);
+        $rec = new Recipe();
+        $recipes = $rec->getAll();
         return view('recipes.index', [
             'recipesList'   => $recipes
         ]);
@@ -65,16 +66,14 @@ class RecipeController extends Controller
      * @param  \App\Models\Recipe  $recipe
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
-    public function show(Recipe $recipe)
+    //public function show(Recipe $recipe)
+    public function show($id)
     {
-        dump($recipe);
-        $n = $recipe->id;
-        dump($n);
         $rec = new Recipe();
-
-        $recipeShow = $rec->getById($n);
+        $recipeShow = $rec->getById($id);
         $ingr = new Ingredient();
-        $ingredients = $ingr->getIngredients($recipe->id);
+        $ingredients = $ingr->getIngredients($recipeShow->id);
+
         if(empty($recipeShow)) {
             abort(404, 'Recipe not found');
         }
@@ -116,5 +115,14 @@ class RecipeController extends Controller
     public function destroy(Recipe $recipe)
     {
         //
+    }
+
+    public function showCategory($category_id)
+    {
+        $rec = new Recipe();
+        $recipes = $rec->getByCategory($category_id);
+        return view('recipes.index', [
+            'recipesList'   => $recipes
+        ]);
     }
 }

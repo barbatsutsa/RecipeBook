@@ -21,6 +21,9 @@ Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'RecipeController@index')
     ->name('index');
+Route::get('/category/{cat_id}', 'RecipeController@showCategory')
+    ->where('cat_id', '\d+')
+    ->name('category');
 Route::get('/recipes/{id}', 'RecipeController@show')
     ->where('id', '\d+')
     ->name('recipe');
