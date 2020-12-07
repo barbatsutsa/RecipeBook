@@ -13,17 +13,22 @@ class Recipe extends Model
 
     public function getAll(): array
     {
-        return \DB::table($this->table)->select('id', 'name', 'description')->orderBy('name', 'desc')->get()->toArray();
+        return \DB::table($this->table)->select('id', 'name', 'description', 'created_at')->orderBy('name', 'desc')->get()->toArray();
     }
 
     public function getById(int $id)
     {
-        return \DB::table($this->table)
+        /*return \DB::table($this->table)
             ->leftJoin('categories', 'category_id', '=', 'categories.id')
             ->leftJoin('users', 'user_id', '=', 'users.id')
             ->where('id', '=', $id)
-            ->get();
+            ->get();*/
 
-        //return \DB::selectOne("select recipes.name, recipes.image, recipes.user_id, recipes.show, recipes.description, categories.title from recipes left join categories on categories.id = recipes.category_id where recipes.id = :id", ['id' => $id]);
+        return \DB::selectOne("select recipes.id, recipes.name, recipes.image, recipes.category_id, recipes.user_id, recipes.show, recipes.description, categories.title from recipes left join categories on categories.id = recipes.category_id where recipes.id = :id", ['id' => $id]);
+    }
+
+    public function getByCategory(int $category_id)
+    {
+        return \DB::table($this->table)->select('id', 'name', 'description', 'created_at')->where('category_id', '=', $category_id)->orderBy('name', 'desc')->get()->toArray();
     }
 }
