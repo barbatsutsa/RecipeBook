@@ -1,21 +1,21 @@
 @extends('layouts.index')
 @section('content')
     <div class="blog-post">
-        <h2 class="blog-post-title">{{ $recipeShow->name }}</h2>
-        @if($recipeShow->created_at)
-            <p class="blog-post-meta">{{ $recipeShow->created_at->format('d-m-Y H:i') }}   от <a href="#">Админ</a></p>
+        <h2 class="blog-post-title">{{ $recipe->name }}</h2>
+        <h4 class="pb-4 mb-4 border-bottom"> <a href="{{ route('category', ['cat_id' => $recipe->category_id]) }}"> Категория - {{ $recipe->title }} </a></h4>
+
+        @if($recipe->image)
+            <p><img src="{{ \Storage::url($recipe->image) }}" style="width: 250px"></p>
         @endif
 
-        <p><img src="{{ \Storage::url($recipeShow->image) }}" style="width: 250px"></p>
-
-        <h3 class="pb-4 mb-4 font-italic border-bottom">
-            @forelse($ingredients as $ingredient)
+        <h4 class="pb-4 mb-4 font-italic border-bottom">
+            @foreach($ingredients as $ingredient)
                 <p>{{$ingredient->name}} - {{$ingredient->amount}} {{$ingredient->sign}} </p>
-            @endforelse
-        </h3>
+            @endforeach
+        </h4>
 
 
-        <p>{!! $recipeShow->description !!}</p>
+        <p>{{ $recipe->description }}</p>
 
     </div><!-- /.blog-post -->
 @stop
