@@ -3,12 +3,12 @@
     min-height: 100px;
     background-color: #fff;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 
 .logo{
-    margin: 25px;
+    margin: 25px 0;
 }
 
 .nav{
@@ -32,9 +32,10 @@
 
 
 .account{
-    width: 15%;
+    width: fit-content;
     font-size: 20px;  
-    margin: 20px 0 20px 0;
+    margin: 20px 0;
     text-align: center;
+    border-bottom: 2px solid black;
     
 }
