@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 class Header extends React.Component {
@@ -7,11 +8,11 @@ class Header extends React.Component {
             <div className="header">
                 <h1 className="logo">Книга рецептов</h1>
                 <nav className="nav">
-                    <li className="nav-item-list"><a className="nav-item">Главная </a></li>
-                    <li className="nav-item-list"><a className="nav-item">Избранное</a></li>
-                    <li className="nav-item-list"><a className="nav-item">Добавить рецепт</a></li>
+                    <li className="nav-item-list"><Link to="/"className="nav-item">Главная </Link></li>
+                    <li className="nav-item-list"><Link to="/"className="nav-item">Избранное</Link></li>
+                    <li className="nav-item-list"><Link to="/"className="nav-item">Добавить рецепт</Link></li>
                 </nav>
-                <a className="account">Мой аккаунт</a>
+                <Link to="/"className="account">Мой аккаунт</Link>
             </div>
         );
     };

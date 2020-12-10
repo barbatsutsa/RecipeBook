@@ -27,7 +27,7 @@
     font-size: 22px;  
     flex-direction: row;
     margin: 0 10px 0 10px;
-    border-bottom: 1px solid #000;
+    color: #000;
 }
 
 
@@ -36,6 +36,6 @@
     font-size: 20px;  
     margin: 20px 0;
     text-align: center;
-    border-bottom: 2px solid black;
+    color: #000;
     
 }

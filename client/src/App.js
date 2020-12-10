@@ -1,8 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Header from "./components/Header/Header";
-import NewRecipes from "./components/NewRecipes/NewRecipes";
-import Categories from "./components/Сategories/Сategories"
+import NewRecipesPage from "./pages/NewRecipesPage";
+import MainPage from "./pages/MainPage";
 import "./index.css";
 
 
@@ -10,12 +9,9 @@ function App() {
     return (
         <React.StrictMode>
             <Router>
-                <Header />
-                <div className="wrp-main">
-                    <Categories />
-                    <NewRecipes />
-                </div>
                 <Switch>
+                <Route exact path="/" component={MainPage} />
+                <Route exact path="/newrecipes" component={NewRecipesPage} />
                 </Switch>
             </Router>
         </React.StrictMode>
