@@ -52,7 +52,7 @@
                 <a class="text-muted" href="#">Subscribe</a>
             </div>
             <div class="col-4 text-center">
-                <a class="blog-header-logo text-dark" href="#">Кулинарная книга</a>
+                <a class="blog-header-logo text-dark" href="{{ route('index') }}">Кулинарная книга</a>
             </div>
             <div class="col-4 d-flex justify-content-end align-items-center">
                 <a class="text-muted" href="#" aria-label="Search">
