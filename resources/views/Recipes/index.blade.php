@@ -21,7 +21,5 @@
     @endforelse
 
 
-    <nav class="blog-pagination">
-        {{ $recipesList->links() }}
-    </nav>
+
 @stop
