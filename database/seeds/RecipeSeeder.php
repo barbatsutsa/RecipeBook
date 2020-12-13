@@ -67,7 +67,7 @@ class RecipeSeeder extends Seeder
                 "category_id" => "3",
                 "user_id" => "1",
                 "description" => "Салат оливье — король салатов. Любой мужчина скажет: нет салата оливье, значит, нет праздника.",
-                
+
 
             ],
         ];
