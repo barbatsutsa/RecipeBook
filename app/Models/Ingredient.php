@@ -11,6 +11,8 @@ class Ingredient extends Model
 
     protected $fillable = ['recipe_id', 'product_id', 'measure_id', 'amount'];
 
+    public $timestamps = false;
+
     public function getIngredients(int $recipe_id)
     {
         return \DB::table($this->table)

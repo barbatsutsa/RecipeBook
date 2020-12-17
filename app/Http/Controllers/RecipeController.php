@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Measure;
+use App\Models\Product;
 use App\Models\Recipe;
 use App\Models\Ingredient;
 use Illuminate\Http\Request;
@@ -30,7 +33,13 @@ class RecipeController extends Controller
      */
     public function create()
     {
-        return view('recipes.create');
+        $cat = new Category();
+        $categories = $cat->getAll();
+
+        return view('recipes.create', [
+            'categories'    => $categories,
+            //'user'          => $user
+        ]);
     }
 
     /**
@@ -42,10 +51,10 @@ class RecipeController extends Controller
     public function store(RecipeCreateRequest $request)
     {
         $data = $request->validated();
+
         if($request->hasFile('image')) {
             $file = $request->file('image');
             $name = $file->getClientOriginalName();
-
             $upload = $file->storeAs('recipe', $name);
             if($upload) {
                 $data['image'] = $upload;
@@ -54,7 +63,8 @@ class RecipeController extends Controller
 
         $recipe = Recipe::create($data);
         if ($recipe) {
-            return redirect()->route('index')->with('success', 'Рецепт успешно добавлен');
+            return redirect()->route('ingredients.create', $recipe->id);
+            //return redirect()->route('recipe', $recipe->id);
         }
 
         return back()->with('error', 'Не удалось добавить рецепт');
