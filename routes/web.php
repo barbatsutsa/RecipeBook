@@ -31,6 +31,10 @@ Route::get('/recipes/create', 'RecipeController@create')
     ->name('recipes.create');
 Route::post('/recipes/store', 'RecipeController@store')
     ->name('recipes.store');
-Route::get('/category/{category_id}', 'RecipeController@index')
-    ->name('recipes.category');
+Route::get('/ingredients/create/{recipe}', 'IngredientController@create')
+    ->name('ingredients.create');
+Route::post('/ingredients/store', 'IngredientController@store')
+    ->name('ingredients.store');
+//Route::get('/category/{category_id}', 'RecipeController@showCategory')
+//    ->name('recipes.category');
 
