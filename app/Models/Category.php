@@ -12,7 +12,7 @@ class Category extends Model
     protected $fillable = ['title'];
 
 
-    public function getAll(): array
+    public function getAll()
     {
         return \DB::select("select id, title from categories");
     }
