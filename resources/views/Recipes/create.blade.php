@@ -54,7 +54,7 @@
             <p>
                 <legend>Порядок приготовления:</legend>
             </p>
-            <p><textarea class="form-control" name="description" id="description" placeholder="Текст">{!! old('description') !!}</textarea>
+            <p><textarea class="form-control" rows="10" name="description" id="description" placeholder="Текст">{!! old('description') !!}</textarea>
                 @error('description')
                     <div class="alert alert-danger">
                         @foreach($errors->get('description') as $error)
