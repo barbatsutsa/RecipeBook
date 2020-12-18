@@ -10,11 +10,11 @@
             <p>
             <legend>Необходимые ингредиенты</legend>
             @if($ingredients)
-                <p>
+                <h6 class="pb-4 mb-4 font-italic border-bottom">
                     @foreach($ingredients as $ingredient)
                         <p>{{ $ingredient->name }} - {{ $ingredient->amount }} {{ $ingredient->sign }} </p>
                     @endforeach
-                </p>
+                </h6>
             @endif
                 <p>
                     <select name='product_id'>
