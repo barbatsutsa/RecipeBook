@@ -35,15 +35,15 @@ return [
     ],
 
     'facebook' => [
-        'client_id' => '1032709790523538',
-        'client_secret' => '38e8ca03090f73215b5bac529a6121eb',
-        'redirect' => '/social-auth/facebook/callback',
+        'client_id' => env ('FACEBOOK_CLIENT_ID'),                   // '',
+        'client_secret' => env ('FACEBOOK_CLIENT_SECRET'),          //'',
+        'redirect' => env ('FACEBOOK_REDIRECT_URI')                  //'',
     ],
 
     'vkontakte' => [
-        'client_id' => '7638447',
-        'client_secret' => 'noo3C9BsTwTuJ8Xy6Fm5',
-        'redirect' => 'http://localhost:8000/auth/vk/response',
-    ]
+        'client_id' => env('VKONTAKTE_CLIENT_ID'),
+        'client_secret' => env('VKONTAKTE_CLIENT_SECRET'),
+        'redirect' => env('VKONTAKTE_REDIRECT_URI')
+        ],
 
 ];
