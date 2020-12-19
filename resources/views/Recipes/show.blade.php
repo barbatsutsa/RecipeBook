@@ -8,11 +8,11 @@
             <p><img src="{{ \Storage::url($recipe->image) }}" style="width: 250px"></p>
         @endif
 
-        <h4 class="pb-4 mb-4 font-italic border-bottom">
+        <h6 class="pb-4 mb-4 font-italic border-bottom">
             @foreach($ingredients as $ingredient)
                 <p>{{$ingredient->name}} - {{$ingredient->amount}} {{$ingredient->sign}} </p>
             @endforeach
-        </h4>
+        </h6>
 
 
         <p>{{ $recipe->description }}</p>

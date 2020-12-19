@@ -19,9 +19,9 @@ class Recipe extends Model
     protected $table = "recipes";
     protected $primaryKey = "id";
 
-    protected $fillable = ['name', 'category_id', 'user_id', 'description'];
+    protected $fillable = ['name', 'image', 'show', 'category_id', 'user_id', 'description'];
 
-    public function getAll(): array
+    public function getAll()
     {
         return \DB::table($this->table)->select('id', 'name', 'description', 'created_at')->orderBy('name', 'desc')->get()->toArray();
     }
